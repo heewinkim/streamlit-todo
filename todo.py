@@ -72,7 +72,7 @@ class MiniDB(object):
         self.conn.commit()
     
 def priorityFunc(series):
-    priorityParser={'HIGH':0,'MID':1,"LOW":2,'ToDo':0,'Doing':1,'Done':2}
+    priorityParser={'HIGH':0,'MID':1,"LOW":2,'ToDo':1,'Doing':0,'Done':2}
     return [priorityParser[v] for v in series.tolist()]
 
 def get_dataframe(result):
