@@ -8,18 +8,21 @@ todo list 관리를 위한 todo 웹페이지 입니다.
 ```sh
 pip3 install requirements.txt
 ```
-"""
 
 ### 사용 방법 (Example)
 
 streamlit run todo.py {DB_PATH}
+
 DB_PATH (생략가능): 
 - DB가 저장될 경로입니다. 디렉토리가 없다면 자동생성되며 .db 파일포맷으로 지정해야합니다.
 
 #### example
 1. foreground 실행 
+
   streamlit run todo.py
+  
 2. background 실행
+
   nohup streamlit run todo.py 1>todo.log 2>&1 & 
 
 Tips
