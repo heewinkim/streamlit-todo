@@ -29,3 +29,5 @@ Tips
 서버를 백그라운드에서 유지되도록 하고 싶다면
 nohup streamlit run todo.py 1>todo.log 2>&1 & 
 와 같이 nohup을 이용하시면 편합니다.
+
+<img href="http://heewinkim.synology.me/imgs/todo.png">
