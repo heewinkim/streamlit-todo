@@ -135,8 +135,8 @@ def Todo(db_path='todo_data.db'):
             # 수정 컴포넌츠 설정
             col1,col2,col3 = st.beta_columns([2,1,1])
             new_task = col1.text_area("할일",task)
-            new_task_status = col2.selectbox(task_status,["ToDo","Doing","Done"])
-            new_task_priority = col3.selectbox('우선 순위',['HIGH','MID','LOW'])
+            new_task_status = col2.selectbox("현재 상태",["ToDo","Doing","Done"],["ToDo","Doing","Done"].index(task_status))
+            new_task_priority = col3.selectbox('우선 순위',['HIGH','MID','LOW'],['HIGH','MID','LOW'].index(task_priority))
 
             # 수정/삭제 기능 구현
             btn_modify,btn_remove,_ = st.beta_columns([1,1,10])
