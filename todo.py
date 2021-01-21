@@ -164,6 +164,8 @@ if __name__ == '__main__':
     if len(sys.argv)==2 and sys.argv[1].split('.')[-1]=='db':
         os.makedirs('/'.join(sys.argv[1].split('/')[:-1]),exist_ok=True)
         Todo(sys.argv[1])
+    elif:
+        Todo()
     else:
         print("HOW TO USE ====")
         print("streamlit run todo.py [default]")
