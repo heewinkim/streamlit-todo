@@ -30,4 +30,5 @@ Tips
 nohup streamlit run todo.py 1>todo.log 2>&1 & 
 와 같이 nohup을 이용하시면 편합니다.
 
-<img href="http://heewinkim.synology.me/imgs/todo.png">
+<img src="http://heewinkim.synology.me/imgs/todo.png">
+
