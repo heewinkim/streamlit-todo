@@ -3,10 +3,13 @@ todo list 관리를 위한 todo 웹페이지 입니다.
 
 ![](https://img.shields.io/badge/python-3.6.1-blue)
 
+
 ### 설치 방법 (How To Install)
 
+파이썬은 설치되어 있어야 합니다.
+
 ```sh
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### 사용 방법 (Example)
