@@ -57,6 +57,6 @@ nohup streamlit run todo.py 1>todo.log 2>&1 &
 </details> 
 
 
-<img src="http://heewinkim.synology.me/imgs/todo.png" width="70%"/>
+![](http://heewinkim.synology.me/imgs/todo.png)
 
 
