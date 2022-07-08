@@ -12,7 +12,7 @@ todo list 관리를 위한 todo 웹페이지 입니다.
 
 ```sh
 # 도커는 설치 되어있어야합니다. 원하는 포트를 지정하여 백그라운드로 실행합니다.
-docker -d -t ${PORT}:8501 heewinkim/todoapp 
+docker run -d -p 8501:8501 heewinkim/todoapp 
 ```
 
 </p>
