@@ -1,36 +1,36 @@
 """
 requirements : 
-    plotly==4.8.0
-    streamlit==0.69.2
-    
-HOW TO USE : 
- 1. requirements의 패지키를 설치하세요 
- 2. 웹페이지를 시작하고 싶다면 streamlit run todo.py {DB_PATH} 를 실행하세요 
+    plotly==5.9.0
+    streamlit==1.10.0
+
+HOW TO USE :
+ 1. requirements의 패지키를 설치하세요
+ 2. 웹페이지를 시작하고 싶다면 streamlit run todo.py {DB_PATH} 를 실행하세요
  DB_PATH : DB가 저장될 경로입니다. 디렉토리가 없다면 자동생성되며 .db 파일포맷으로 지정해야합니다. (eg. /path/to/db/data.db)
 
- 예시. 
+ 예시.
  streamlit run todo.py /path/to/db/todo_data.db
- 
+
  Tips
  서버를 백그라운드에서 유지되도록 하고 싶다면
- nohup streamlit run todo.py 1>todo.log 2>&1 & 
+ nohup streamlit run todo.py 1>todo.log 2>&1 &
  와 같이 nohup을 이용하시면 편합니다.
 """
 
 
 import streamlit as st
-import pandas as pd 
-import plotly.express as px 
+import pandas as pd
+import plotly.express as px
 import sqlite3
 
-st.beta_set_page_config(
+st.set_page_config(
     layout="wide",  # Can be "centered" or "wide". In the future also "dashboard", etc.
 	initial_sidebar_state="auto",  # Can be "auto", "expanded", "collapsed"
     page_title='TODO Page'
 )
 
 class MiniDB(object):
-    
+
     def __init__(self,db_path='data.db'):
 
         self.conn = sqlite3.connect(db_path,check_same_thread=False)
@@ -70,7 +70,7 @@ class MiniDB(object):
     def delete_data(self,task):
         self.c.execute('DELETE FROM taskstable WHERE task="{}"'.format(task))
         self.conn.commit()
-    
+
 def priorityFunc(series):
     priorityParser={'HIGH':0,'MID':1,"LOW":2,'ToDo':1,'Doing':0,'Done':2}
     return [priorityParser[v] for v in series.tolist()]
@@ -94,30 +94,30 @@ def Todo(db_path='todo_data.db'):
     # 페이지 상단 꾸미기
     st.markdown("""<div style="background-color:#464e5f;padding:1px;border-radius:5px">
 <h3 style="color:white;text-align:center;">할일 리스트</h3></div>""",unsafe_allow_html=True)
-    
+
     # 왼쪽 사이드 메뉴 설정
     menu = ["할일 추가","할일 수정/삭제"]
     choice = st.sidebar.radio("Menu",menu)
-    
+
     # 테이블 뷰
     st.subheader('할일 보기')
     st.markdown('---')
-    
+
     # 테이블과 그래프 객체 생성
-    df_table,df_pie = st.beta_columns([2,1])
-    
+    df_table,df_pie = st.columns([2,1])
+
     # 추가 프로세스
-    if choice == "할일 추가":    
+    if choice == "할일 추가":
         st.subheader('할일 추가')
         st.markdown('---')
-        col1,col2,col3 = st.beta_columns([2,1,1])
+        col1,col2,col3 = st.columns([2,1,1])
         task = col1.text_area("할일")
         task_status = col2.selectbox("현재 상태",["ToDo","Doing","Done"])
         task_priority = col3.selectbox('우선 순위',['HIGH','MID','LOW'])
         if st.button("추가"):
             db.add_data(task,task_status,task_priority)
             st.success("Added ::{} ::To Task".format(task))
-        
+
     # 수정 삭제 프로세스
     elif choice == '할일 수정/삭제':
         st.subheader('할일 수정/삭제')
@@ -133,13 +133,13 @@ def Todo(db_path='todo_data.db'):
             task_priority = task_result[0][2]
 
             # 수정 컴포넌츠 설정
-            col1,col2,col3 = st.beta_columns([2,1,1])
+            col1,col2,col3 = st.columns([2,1,1])
             new_task = col1.text_area("할일",task)
             new_task_status = col2.selectbox("현재 상태",["ToDo","Doing","Done"],["ToDo","Doing","Done"].index(task_status))
             new_task_priority = col3.selectbox('우선 순위',['HIGH','MID','LOW'],['HIGH','MID','LOW'].index(task_priority))
 
             # 수정/삭제 기능 구현
-            btn_modify,btn_remove,_ = st.beta_columns([1,1,10])
+            btn_modify,btn_remove,_ = st.columns([1,1,10])
             if btn_modify.button("수정"):
                 db.edit_task_data(new_task,new_task_status,new_task_priority,task,task_status,task_priority)
                 st.success("Updated ::{} ::To {}".format(task,new_task))
