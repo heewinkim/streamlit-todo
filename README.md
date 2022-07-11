@@ -4,7 +4,10 @@ todo list 관리를 위한 todo 웹페이지 입니다.
 ![](https://img.shields.io/badge/python-3.6.1-blue)
 
 
-## 바로 실행해 보기 🦊
+## 바로 실행해 보기 (py using Streamlit) 🐹
+[![Run on Streamlit](https://img.shields.io/badge/Run-STREAMLIT-green)](https://heewinkim-streamlit-todo-todo-xb11i5.streamlitapp.com/)
+
+## 바로 실행해 보기 (도커 using Ainize) 🦊
 [![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/heewinkim/streamlit-todo)
 
 
