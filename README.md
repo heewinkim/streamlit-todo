@@ -1,7 +1,7 @@
 # streamlit-todo
 todo list 관리를 위한 todo 웹페이지 입니다. 
 
-![](https://img.shields.io/badge/python-3.6.1-blue)
+![](https://img.shields.io/badge/python-3.7-blue)
 
 
 ## 바로 실행해 보기 (py using Streamlit) 🐹
@@ -34,7 +34,7 @@ docker run -d -p 80:80 heewinkim/todoapp
 <p>
 
 ```sh
-# 파이썬은 사전에 설치되어있어야합니다(3.6)
+# 파이썬은 사전에 설치되어있어야합니다(3.7)
 
 https://github.com/heewinkim/streamlit-todo.git
 cd streamlit-todo
